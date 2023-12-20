@@ -18,4 +18,12 @@ class Todo extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    protected $fillable = [
+        'id',
+        'todo',
+        'user_id',
+        'category_id',
+    ];
+
 }
