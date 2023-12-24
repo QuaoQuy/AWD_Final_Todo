@@ -32,9 +32,11 @@ class UserFactory extends Factory
         ];
     }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
+    public function hasCategories(int $count): static
+    {
+        return $this->has(Category::factory()->count($count), 'categories');
+    }
+
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
