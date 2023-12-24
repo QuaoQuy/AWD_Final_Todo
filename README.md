@@ -37,7 +37,7 @@ Lecterer: ```Nguyễn Hữu Quyền```
 https://youtu.be/Dj8F0KejdBY
  
 ## Database schema
-![Screenshot 2023-12-24 225242](https://github.com/QuaoQuy/AWD_Final_Todo/assets/130327203/a4d42152-9407-4a75-99ed-1d2ab7eb2833)
+![Screenshot 2023-12-24 233827](https://github.com/QuaoQuy/AWD_Final_Todo/assets/130327203/3e9004f7-24bd-4438-8290-2d7e16036e5b)
 
 
 ## Installation
