@@ -1,5 +1,5 @@
 <div>
-    <h1 class="mb-3 text-xl font-bold">Categories</h1>
+    <h1 class="mb-3 text-xl font-bold text-blue-800 leading-tight">Categories</h1>
     <div class="flex justify-center">
         <x-input-error :messages="$errors->get('category')" class="mt-2" />
     </div>

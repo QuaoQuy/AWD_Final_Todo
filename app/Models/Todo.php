@@ -24,6 +24,7 @@ class Todo extends Model
         'todo',
         'user_id',
         'category_id',
+        'is_completed',
     ];
 
 }
