@@ -9,8 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="sm:rounded-lg">
                 <div class=" text-gray-900">
-                    @livewire('category')
-                    @livewire('todo')
+                    @livewire('categories')
+                    @livewire('todos')
                 </div>
             </div>
         </div>

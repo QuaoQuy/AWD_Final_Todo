@@ -1,10 +1,36 @@
 <div>
+    <h1 class="my-3 text-xl font-bold text-blue-800 leading-tight">Filter</h1>
+    <div class="flex">
+        <div class="flex items-center cursor-pointer" wire:click="filterByCategory('all')">
+            <div class="bg-gray-500 text-white py-1 px-4 text-xs font-bold uppercase rounded-sm text-center mr-2">
+                --All--
+            </div>
+        </div>
+        <div class="flex items-center cursor-pointer" wire:click="filterByCategory('none')">
+            <div class="bg-gray-500 text-white py-1 px-4 text-xs font-bold uppercase rounded-sm text-center mr-2">
+                --None--
+            </div>
+        </div>
+        @foreach ($categories as $category)
+            <div class="flex items-center cursor-pointer" wire:click="filterByCategory({{ $category->id }})">
+                <div class="flex text-white py-1 px-4 text-xs font-bold uppercase rounded-sm text-center mr-2"
+                    style="background-color:{{ $category->color }}">
+                    {{ $category->category }}
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div>
+        <br>
+    </div>
+
     <h1 class="my-3 text-xl font-bold text-blue-800 leading-tight">Todos</h1>
     <div class="flex justify-center">
         <x-input-error :messages="$errors->get('todo')" class="mt-2" />
     </div>
 
-    <form class="flex" method="POST" wire:submit.prevent='addTodo'> <!--input cannot be empty-->
+    <form class="flex" method="POST" wire:submit.prevent='addTodo'>
         <x-text-input wire:model='todo' class="w-full mr-2" />
         <select wire:model='category_id' class="rounded-md mr-2">
             <option value="0">None</option>
@@ -19,11 +45,9 @@
     </form>
 
     @forelse($todos as $todo)
-
         <div
             @if ($todo->is_completed) class="flex bg-white opacity-50 my-4 p-4 rounded-xl items-center justify-between shadow-md"
-        @else
-        class="flex bg-white my-4 p-4 rounded-xl items-center justify-between shadow-md" @endif>
+            @else class="flex bg-white my-4 p-4 rounded-xl items-center justify-between shadow-md" @endif>
 
             <div>
                 @if ($edit == $todo->id)
@@ -57,7 +81,6 @@
             </div>
 
             <div>
-
                 @if ($edit == $todo->id)
                     <button class="bg-indigo-500 text-white px-4 py-2 rounded-md"
                         wire:click='updateTodo({{ $todo->id }})'>Update</button>
@@ -79,12 +102,8 @@
                         class="bg-red-800 text-white px-4 py-2 rounded-md">Delete</button>
                 @endif
             </div>
-
-
         </div>
-
     @empty
         <p class="text-gray-500">Nothing to do yet!</p>
     @endforelse
-
 </div>
